@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pillah Priscilah | Premium Custom Cakes</title>
+    <meta name="description" content="Beautifully designed cakes for life's sweetest celebrations. Custom boutique cake studio in Kenya.">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Pillah Priscilah</a>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#collection">Cake Collection</a>
+                <a href="#design">Design Your Cake</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#story">Our Story</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="#design" class="btn btn-primary nav-cta">ORDER YOUR CAKE</a>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <span class="label">THE ART OF CELEBRATION</span>
+            <h1>Made With Love.<br>Remembered Forever.</h1>
+            <p>Beautifully designed cakes for life's sweetest celebrations. Tell us your dream cake, and let's bring it to life.</p>
+            <div class="hero-buttons">
+                <a href="#design" class="btn btn-primary">CREATE YOUR DREAM CAKE</a>
+                <a href="#collection" class="btn btn-secondary">EXPLORE OUR CAKES</a>
+            </div>
+        </div>
+        <div class="hero-images">
+            <div class="image-wrapper img-1 reveal">
+                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=800&q=80" alt="Elegant wedding cake">
+                <div class="floating-badge badge-1">Made for your moments</div>
+            </div>
+            <div class="image-wrapper img-2 reveal">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80" alt="Vintage heart cake">
+                <div class="floating-badge badge-2">Custom designs</div>
+            </div>
+            <div class="image-wrapper img-3 reveal">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Strawberry layered cake">
+                <div class="floating-badge badge-3">Every detail matters</div>
+            </div>
+        </div>
+    </header>
+
+    <section id="collection" class="categories">
+        <div class="section-header">
+            <h2>Find Your Sweet Inspiration</h2>
+            <p>Explore our beautiful collections</p>
+        </div>
+        <div class="category-grid">
+            <!-- Category Cards -->
+            <div class="cat-card" data-cat="Wedding">
+                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&q=80" alt="Wedding Cakes">
+                <div class="cat-content">
+                    <h3>Wedding Cakes</h3>
+                    <p>Elegant centerpieces for your special day.</p>
+                    <button class="btn btn-text">Explore &rarr;</button>
+                </div>
+            </div>
+            <div class="cat-card" data-cat="Birthday">
+                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=600&q=80" alt="Birthday Cakes">
+                <div class="cat-content">
+                    <h3>Birthday Cakes</h3>
+                    <p>Joyful creations to mark another beautiful year.</p>
+                    <button class="btn btn-text">Explore &rarr;</button>
+                </div>
+            </div>
+            <div class="cat-card" data-cat="Vintage">
+                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" alt="Vintage Cakes">
+                <div class="cat-content">
+                    <h3>Vintage Cakes</h3>
+                    <p>Classic piping and timeless charm.</p>
+                    <button class="btn btn-text">Explore &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="design" class="designer-section">
+        <div class="section-header">
+            <h2>Your Dream Cake Starts Here.</h2>
+            <p>Every celebration is different. Tell us what you imagine, and let's create something beautiful.</p>
+        </div>
+        
+        <div class="designer-container">
+            <div class="designer-form">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress"></div>
+                </div>
+                <div class="step-indicator">Step <span id="current-step">1</span> of 10</div>
+
+                <form id="cakeForm">
+                    <!-- Step 1 -->
+                    <div class="form-step active" data-step="1">
+                        <h3>Choose Your Occasion</h3>
+                        <div class="options-grid">
+                            <label class="option-card"><input type="radio" name="occasion" value="Birthday"><span>Birthday</span></label>
+                            <label class="option-card"><input type="radio" name="occasion" value="Wedding"><span>Wedding</span></label>
+                            <label class="option-card"><input type="radio" name="occasion" value="Anniversary"><span>Anniversary</span></label>
+                            <label class="option-card"><input type="radio" name="occasion" value="Baby Shower"><span>Baby Shower</span></label>
+                            <label class="option-card"><input type="radio" name="occasion" value="Other"><span>Other</span></label>
+                        </div>
+                    </div>
+                    <!-- Additional steps are implemented in JS to keep HTML clean -->
+                    <div class="step-actions">
+                        <button type="button" class="btn btn-secondary hidden" id="prevBtn">Previous</button>
+                        <button type="button" class="btn btn-primary" id="nextBtn">Next Step</button>
+                        <button type="submit" class="btn btn-primary hidden" id="submitBtn">CONTINUE TO WHATSAPP</button>
+                    </div>
+                </form>
+                
+                <div class="quick-enquiry">
+                    <p>Know exactly what you want?</p>
+                    <button class="btn btn-secondary btn-sm" id="quickEnquiryBtn">QUICK CAKE ENQUIRY</button>
+                </div>
+            </div>
+
+            <div class="order-summary">
+                <h3>Your Cake Vision</h3>
+                <div id="summary-content" class="summary-content">
+                    <p class="empty-msg">Start selecting to build your cake.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <div class="section-header">
+            <h2>Little Details. Big Celebrations.</h2>
+            <p>How we transform your ideas into beautiful cakes.</p>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <span class="step-num">01</span>
+                <h3>DREAM IT</h3>
+                <p>You share your inspiration and ideas.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">02</span>
+                <h3>WE CREATE IT</h3>
+                <p>The cake is prepared around your preferences.</p>
+            </div>
+            <div class="step">
+                <span class="step-num">03</span>
+                <h3>CELEBRATE IT</h3>
+                <p>Enjoy a beautiful cake made for your moment.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-card">
+            <h2>Pillah Priscilah</h2>
+            <p>Let's create something unforgettable together.</p>
+            <a href="https://wa.me/254742025817" target="_blank" class="btn btn-primary">WHATSAPP US</a>
+            <div class="placeholders">
+                <p>📍 Location: [Business Address Placeholder]</p>
+                <p>✉️ Email: [Email Placeholder]</p>
+                <p>🕒 Hours: [Opening Hours Placeholder]</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/254742025817" target="_blank" class="floating-whatsapp">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
+            <path d="M12.031 0C5.394 0 0 5.394 0 12.031c0 2.12.551 4.191 1.597 6.002L.05 23.633l5.748-1.507A11.96 11.96 0 0012.031 24c6.636 0 12.031-5.394 12.031-12.031S18.667 0 12.031 0zM17.47 16.924c-.262.74-1.272 1.341-2.022 1.442-.64.085-1.468.214-4.225-.928-3.33-1.38-5.46-4.808-5.626-5.03-.166-.222-1.341-1.785-1.341-3.411 0-1.626.84-2.423 1.144-2.738.303-.315.659-.395.877-.395.218 0 .436 0 .618.009.2.01.468-.078.731.554.281.677.962 2.347 1.045 2.512.083.165.139.356.027.577-.111.222-.167.355-.333.555-.166.2-.345.432-.499.599-.166.183-.342.384-.139.734.204.35 1.031 1.7 2.25 2.785 1.577 1.405 2.913 1.838 3.284 1.996.371.159.588.134.809-.115.221-.249.957-1.116 1.218-1.498.261-.383.522-.32.855-.196.333.124 2.106.994 2.467 1.176.361.182.602.274.69.426.088.152.088.882-.174 1.622z"/>
+        </svg>
+    </a>
+
+    <!-- Modals and Overlay would be dynamically inserted here -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
