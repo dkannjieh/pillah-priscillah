@@ -3,186 +3,1897 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pillah Priscilah | Premium Custom Cakes</title>
-    <meta name="description" content="Beautifully designed cakes for life's sweetest celebrations. Custom boutique cake studio in Kenya.">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Pillah Priscilah | Boutique Custom Cake Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #FFF9F3;
+            --vanilla: #FFF0DE;
+            --dusty-rose: #D99AA6;
+            --dusty-rose-dark: #c4828f;
+            --peach: #F4C5AE;
+            --sage: #A6B49A;
+            --cocoa: #49352F;
+            --brown: #82665B;
+            --champagne: #D5B88C;
+            --white: #FFFFFF;
+            
+            --font-head: 'Cormorant Garamond', serif;
+            --font-body: 'DM Sans', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--cocoa);
+            font-family: var(--font-body);
+            line-height: 1.65;
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-head);
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--cocoa);
+        }
+
+        h1 { font-size: clamp(2.8rem, 6vw, 5.2rem); letter-spacing: -0.02em; }
+        h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); }
+        h3 { font-size: 1.55rem; }
+
+        p { color: var(--brown); font-weight: 400; }
+
+        .label {
+            display: inline-block;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--dusty-rose);
+            font-weight: 600;
+            margin-bottom: 0.85rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--dusty-rose);
+            color: var(--white);
+            box-shadow: 0 10px 25px rgba(217, 154, 166, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dusty-rose-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(217, 154, 166, 0.45);
+        }
+
+        .btn-secondary {
+            background-color: var(--vanilla);
+            color: var(--cocoa);
+            border: 1px solid var(--peach);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--peach);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 0.7rem 1.4rem;
+            font-size: 0.78rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.25rem 5%;
+            transition: var(--transition);
+            background: rgba(255, 249, 243, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(244, 197, 174, 0.25);
+        }
+
+        .navbar.scrolled {
+            padding: 0.9rem 5%;
+            box-shadow: 0 8px 30px rgba(73, 53, 47, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1360px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: var(--cocoa);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .logo span {
+            color: var(--dusty-rose);
+            font-style: italic;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--cocoa);
+            font-size: 0.92rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--dusty-rose);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--dusty-rose); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 26px;
+            height: 2px;
+            background: var(--cocoa);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            padding: 9rem 5% 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-bg-shape {
+            position: absolute;
+            top: 8%;
+            right: -5%;
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, var(--vanilla) 0%, rgba(255,249,243,0) 72%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            margin: 1.6rem 0 2.4rem;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hero-collage {
+            position: relative;
+            height: 580px;
+        }
+
+        .collage-item {
+            position: absolute;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(73, 53, 47, 0.12);
+            border: 6px solid var(--white);
+            transition: transform 0.6s ease;
+        }
+
+        .collage-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .c-main {
+            width: 68%;
+            height: 76%;
+            top: 0;
+            right: 4%;
+            z-index: 2;
+        }
+
+        .c-sub1 {
+            width: 48%;
+            height: 52%;
+            bottom: 0;
+            left: 2%;
+            z-index: 3;
+        }
+
+        .c-sub2 {
+            width: 36%;
+            height: 36%;
+            top: 10%;
+            left: 0;
+            z-index: 1;
+        }
+
+        .float-pill {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(8px);
+            padding: 0.7rem 1.3rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--cocoa);
+            box-shadow: 0 12px 30px rgba(73, 53, 47, 0.1);
+            border: 1px solid var(--vanilla);
+            z-index: 4;
+            animation: floatY 5s ease-in-out infinite;
+        }
+
+        .fp-1 { top: 6%; right: 0; animation-delay: 0s; }
+        .fp-2 { bottom: 18%; right: 0; animation-delay: 1.5s; }
+        .fp-3 { top: 44%; left: -2%; animation-delay: 3s; }
+
+        @keyframes floatY {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Section Common */
+        section {
+            padding: 6.5rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header p {
+            margin-top: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* Category Discovery Grid */
+        .categories-section {
+            background-color: var(--vanilla);
+            border-radius: 48px;
+            margin: 0 2%;
+        }
+
+        .cat-grid {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cat-card {
+            background: var(--bg-primary);
+            border-radius: 22px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(213, 184, 140, 0.25);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(73, 53, 47, 0.08);
+            border-color: var(--dusty-rose);
+        }
+
+        .cat-img {
+            height: 190px;
+            overflow: hidden;
+        }
+
+        .cat-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .cat-card:hover .cat-img img {
+            transform: scale(1.07);
+        }
+
+        .cat-body {
+            padding: 1.4rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cat-body h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .cat-body p {
+            font-size: 0.88rem;
+            margin-bottom: 1rem;
+        }
+
+        .cat-link {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--dusty-rose);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Product Showcase */
+        .showcase-grid {
+            max-width: 1360px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 2.2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 35px rgba(73, 53, 47, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 240, 222, 0.9);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 45px rgba(73, 53, 47, 0.1);
+        }
+
+        .product-img {
+            height: 290px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .flavour-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255, 249, 243, 0.92);
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--cocoa);
+        }
+
+        .product-info {
+            padding: 1.6rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .product-info p {
+            font-size: 0.9rem;
+            margin-bottom: 1.4rem;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid var(--vanilla);
+        }
+
+        .price-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--sage);
+        }
+
+        /* Interactive Cake Designer */
+        .designer-section {
+            background: linear-gradient(180deg, var(--vanilla) 0%, var(--bg-primary) 100%);
+            border-radius: 48px;
+            margin: 0 2%;
+        }
+
+        .designer-layout {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.4fr 0.85fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .wizard-box {
+            background: var(--bg-primary);
+            padding: 3rem;
+            border-radius: 28px;
+            box-shadow: 0 20px 50px rgba(73, 53, 47, 0.06);
+            border: 1px solid var(--peach);
+        }
+
+        .wizard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .step-count {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dusty-rose);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 6px;
+            background: var(--vanilla);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 10%;
+            background: var(--dusty-rose);
+            transition: width 0.4s ease;
+        }
+
+        .step-pane {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .step-pane.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-pane h3 {
+            font-size: 2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .step-desc {
+            font-size: 0.95rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .choice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+            gap: 0.9rem;
+        }
+
+        .choice-pill {
+            background: var(--white);
+            border: 1.5px solid var(--vanilla);
+            padding: 1.1rem 1rem;
+            border-radius: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--cocoa);
+            user-select: none;
+        }
+
+        .choice-pill:hover {
+            border-color: var(--peach);
+            background: var(--vanilla);
+        }
+
+        .choice-pill.selected {
+            background: var(--dusty-rose);
+            border-color: var(--dusty-rose);
+            color: var(--white);
+            box-shadow: 0 8px 18px rgba(217, 154, 166, 0.25);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--cocoa);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.95rem 1.1rem;
+            border-radius: 12px;
+            border: 1.5px solid var(--peach);
+            background: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--cocoa);
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--dusty-rose);
+        }
+
+        .upload-box {
+            border: 2px dashed var(--dusty-rose);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            background: var(--white);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .upload-box:hover {
+            background: var(--vanilla);
+        }
+
+        #imagePreview {
+            max-width: 180px;
+            max-height: 180px;
+            border-radius: 12px;
+            margin: 1rem auto 0;
+            display: none;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .wizard-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--vanilla);
+        }
+
+        /* Live Summary Card */
+        .vision-card {
+            background: var(--cocoa);
+            color: var(--white);
+            padding: 2.5rem;
+            border-radius: 28px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .vision-card h3 {
+            color: var(--vanilla);
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .vision-sub {
+            color: var(--peach);
+            font-size: 0.9rem;
+            margin-bottom: 1.8rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(255, 240, 222, 0.15);
+        }
+
+        .vision-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            font-size: 0.92rem;
+            margin-bottom: 2rem;
+        }
+
+        .vision-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            border-bottom: 1px dashed rgba(255, 240, 222, 0.12);
+            padding-bottom: 0.5rem;
+        }
+
+        .vision-item span:first-child {
+            color: var(--champagne);
+            font-weight: 500;
+        }
+
+        .vision-item span:last-child {
+            text-align: right;
+            color: var(--white);
+        }
+
+        .quick-banner {
+            margin-top: 1.5rem;
+            background: var(--vanilla);
+            padding: 1.5rem;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Masonry Gallery */
+        .masonry-grid {
+            max-width: 1360px;
+            margin: 0 auto;
+            columns: 4 260px;
+            column-gap: 1.5rem;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(73, 53, 47, 0.06);
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .masonry-caption {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(73, 53, 47, 0.75), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.2rem;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .masonry-item:hover .masonry-caption {
+            opacity: 1;
+        }
+
+        .demo-disclaimer {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--brown);
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* Process & Story */
+        .process-section {
+            background: var(--cocoa);
+            color: var(--white);
+            border-radius: 48px;
+            margin: 0 2%;
+        }
+
+        .process-section h2, .process-section h3 {
+            color: var(--vanilla);
+        }
+
+        .process-section p {
+            color: var(--peach);
+        }
+
+        .stages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .stage-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 240, 222, 0.12);
+            padding: 2.5rem;
+            border-radius: 24px;
+            transition: var(--transition);
+        }
+
+        .stage-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .stage-num {
+            font-family: var(--font-head);
+            font-size: 3rem;
+            color: var(--dusty-rose);
+            line-height: 1;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Highlights & Stories */
+        .highlights-grid {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--white);
+            padding: 2.2rem;
+            border-radius: 22px;
+            border: 1px solid var(--vanilla);
+        }
+
+        .highlight-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--vanilla);
+            color: var(--dusty-rose);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .stories-section {
+            background: var(--vanilla);
+            border-radius: 48px;
+            margin: 0 2%;
+        }
+
+        .stories-grid {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: var(--white);
+            padding: 2.4rem;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(73, 53, 47, 0.04);
+        }
+
+        .story-tag {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--sage);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        /* Contact & Footer */
+        .contact-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 32px;
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(73, 53, 47, 0.06);
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.98rem;
+        }
+
+        .placeholder-badge {
+            background: var(--vanilla);
+            color: var(--brown);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px dashed var(--champagne);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            color: var(--brown);
+            font-size: 0.9rem;
+        }
+
+        /* Floating WhatsApp */
+        .wa-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: white;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
+            z-index: 999;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .wa-float:hover {
+            transform: scale(1.08);
+        }
+
+        /* Toast Notification */
+        .toast-msg {
+            position: fixed;
+            bottom: 6rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--cocoa);
+            color: var(--vanilla);
+            padding: 0.9rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            box-shadow: 0 12px 30px rgba(73, 53, 47, 0.25);
+            z-index: 3000;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            max-width: 90vw;
+        }
+
+        .toast-msg.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(73, 53, 47, 0.65);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 1.5rem;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-card {
+            background: var(--bg-primary);
+            max-width: 500px;
+            width: 100%;
+            padding: 2.5rem;
+            border-radius: 28px;
+            position: relative;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--cocoa);
+        }
+
+        /* Lightbox */
+        #lightboxImg {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero { grid-template-columns: 1fr; padding-top: 8rem; }
+            .hero-collage { height: 480px; }
+            .designer-layout { grid-template-columns: 1fr; }
+            .stages-grid { grid-template-columns: 1fr; }
+            .contact-wrap { grid-template-columns: 1fr; padding: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 4rem 4%; }
+            .categories-section, .designer-section, .process-section, .stories-section {
+                border-radius: 28px;
+                margin: 0 2.5%;
+            }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; padding: 0.6rem; }
+            .nav-links.mobile-open {
+                display: flex;
+                flex-direction: column;
+                gap: 1.1rem;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                padding: 1.75rem 6%;
+                border-bottom: 1px solid var(--vanilla);
+                box-shadow: 0 15px 30px rgba(73, 53, 47, 0.12);
+            }
+            .nav-links.mobile-open a { font-size: 1.1rem; padding: 0.45rem 0; }
+            .hero { padding: 6.5rem 5% 3.5rem; gap: 2.2rem; min-height: auto; }
+            .hero-bg-shape { width: 280px; height: 280px; right: 0; }
+            .hero-content p { font-size: 1.05rem; margin: 1.2rem 0 1.8rem; }
+            .hero-buttons .btn { width: 100%; }
+            .hero-collage { height: 340px; width: 100%; }
+            .collage-item { border-width: 4px; border-radius: 18px; }
+            .float-pill { padding: 0.45rem 0.9rem; font-size: 0.72rem; }
+            .fp-1 { right: 0; top: 3%; }
+            .fp-2 { right: 2%; bottom: 12%; }
+            .fp-3 { left: 0; top: 44%; }
+            .cat-grid, .showcase-grid, .highlights-grid, .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            .masonry-grid { columns: 2 140px; column-gap: 0.9rem; }
+            .masonry-item { margin-bottom: 0.9rem; }
+            .choice-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+            .choice-pill { padding: 0.95rem 0.6rem; font-size: 0.88rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .wizard-box { padding: 1.35rem; border-radius: 20px; }
+            .wizard-top { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+            .wizard-nav { gap: 0.75rem; }
+            .wizard-nav .btn { padding: 0.9rem 1.2rem; font-size: 0.8rem; flex: 1; }
+            .vision-card { position: static; padding: 1.75rem; border-radius: 22px; }
+            .contact-wrap { padding: 2rem 1.4rem; border-radius: 24px; gap: 2rem; }
+            .detail-row { flex-wrap: wrap; gap: 0.4rem; }
+            .wa-float { width: 56px; height: 56px; bottom: 1.25rem; right: 1.25rem; }
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Pillah Priscilah</a>
-            <div class="nav-links">
+            <a href="#home" class="logo">Pillah <span>Priscilah</span></a>
+            <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
-                <a href="#collection">Cake Collection</a>
-                <a href="#design">Design Your Cake</a>
+                <a href="#inspiration">Cake Collection</a>
+                <a href="#designer">Design Your Cake</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#story">Our Story</a>
                 <a href="#contact">Contact</a>
             </div>
-            <a href="#design" class="btn btn-primary nav-cta">ORDER YOUR CAKE</a>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <a href="#designer" class="btn btn-primary btn-sm nav-cta">ORDER YOUR CAKE</a>
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <header id="home" class="hero">
+    <!-- Hero -->
+    <header class="hero" id="home">
+        <div class="hero-bg-shape"></div>
         <div class="hero-content">
             <span class="label">THE ART OF CELEBRATION</span>
             <h1>Made With Love.<br>Remembered Forever.</h1>
             <p>Beautifully designed cakes for life's sweetest celebrations. Tell us your dream cake, and let's bring it to life.</p>
             <div class="hero-buttons">
-                <a href="#design" class="btn btn-primary">CREATE YOUR DREAM CAKE</a>
-                <a href="#collection" class="btn btn-secondary">EXPLORE OUR CAKES</a>
+                <a href="#designer" class="btn btn-primary">CREATE YOUR DREAM CAKE</a>
+                <a href="#showcase" class="btn btn-secondary">EXPLORE OUR CAKES</a>
             </div>
         </div>
-        <div class="hero-images">
-            <div class="image-wrapper img-1 reveal">
-                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=800&q=80" alt="Elegant wedding cake">
-                <div class="floating-badge badge-1">Made for your moments</div>
+        <div class="hero-collage">
+            <div class="collage-item c-main">
+                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=900&q=80" alt="Tiered floral celebration cake">
             </div>
-            <div class="image-wrapper img-2 reveal">
-                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80" alt="Vintage heart cake">
-                <div class="floating-badge badge-2">Custom designs</div>
+            <div class="collage-item c-sub1">
+                <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=700&q=80" alt="Vintage piped heart cake">
             </div>
-            <div class="image-wrapper img-3 reveal">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Strawberry layered cake">
-                <div class="floating-badge badge-3">Every detail matters</div>
+            <div class="collage-item c-sub2">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Artisan berry cake">
             </div>
+            <div class="float-pill fp-1">Made for your moments</div>
+            <div class="float-pill fp-2">Custom designs</div>
+            <div class="float-pill fp-3">Every detail matters</div>
         </div>
     </header>
 
-    <section id="collection" class="categories">
+    <!-- Categories -->
+    <section class="categories-section" id="inspiration">
         <div class="section-header">
+            <span class="label">CURATED COLLECTIONS</span>
             <h2>Find Your Sweet Inspiration</h2>
-            <p>Explore our beautiful collections</p>
+            <p>Select a celebration style below to jump straight into designing your custom creation.</p>
         </div>
-        <div class="category-grid">
-            <!-- Category Cards -->
-            <div class="cat-card" data-cat="Wedding">
-                <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&q=80" alt="Wedding Cakes">
-                <div class="cat-content">
-                    <h3>Wedding Cakes</h3>
-                    <p>Elegant centerpieces for your special day.</p>
-                    <button class="btn btn-text">Explore &rarr;</button>
-                </div>
-            </div>
-            <div class="cat-card" data-cat="Birthday">
-                <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=600&q=80" alt="Birthday Cakes">
-                <div class="cat-content">
-                    <h3>Birthday Cakes</h3>
-                    <p>Joyful creations to mark another beautiful year.</p>
-                    <button class="btn btn-text">Explore &rarr;</button>
-                </div>
-            </div>
-            <div class="cat-card" data-cat="Vintage">
-                <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" alt="Vintage Cakes">
-                <div class="cat-content">
-                    <h3>Vintage Cakes</h3>
-                    <p>Classic piping and timeless charm.</p>
-                    <button class="btn btn-text">Explore &rarr;</button>
-                </div>
-            </div>
-        </div>
+        <div class="cat-grid" id="categoryGrid"></div>
     </section>
 
-    <section id="design" class="designer-section">
+    <!-- Product Showcase -->
+    <section id="showcase">
         <div class="section-header">
+            <span class="label">SIGNATURE CREATIONS</span>
+            <h2>Crafted For Unforgettable Moments</h2>
+            <p>Explore our signature designs—each baked fresh to order and tailored to your celebration.</p>
+        </div>
+        <div class="showcase-grid" id="showcaseGrid"></div>
+    </section>
+
+    <!-- Interactive Cake Designer -->
+    <section class="designer-section" id="designer">
+        <div class="section-header">
+            <span class="label">BESPOKE CONSULTATION</span>
             <h2>Your Dream Cake Starts Here.</h2>
             <p>Every celebration is different. Tell us what you imagine, and let's create something beautiful.</p>
         </div>
-        
-        <div class="designer-container">
-            <div class="designer-form">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress"></div>
-                </div>
-                <div class="step-indicator">Step <span id="current-step">1</span> of 10</div>
 
-                <form id="cakeForm">
-                    <!-- Step 1 -->
-                    <div class="form-step active" data-step="1">
-                        <h3>Choose Your Occasion</h3>
-                        <div class="options-grid">
-                            <label class="option-card"><input type="radio" name="occasion" value="Birthday"><span>Birthday</span></label>
-                            <label class="option-card"><input type="radio" name="occasion" value="Wedding"><span>Wedding</span></label>
-                            <label class="option-card"><input type="radio" name="occasion" value="Anniversary"><span>Anniversary</span></label>
-                            <label class="option-card"><input type="radio" name="occasion" value="Baby Shower"><span>Baby Shower</span></label>
-                            <label class="option-card"><input type="radio" name="occasion" value="Other"><span>Other</span></label>
+        <div class="designer-layout">
+            <div class="wizard-box">
+                <div class="wizard-top">
+                    <span class="step-count" id="stepLabel">Step 1 of 10</span>
+                    <button type="button" class="btn btn-secondary btn-sm" id="openQuickModal">QUICK CAKE ENQUIRY</button>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+
+                <form id="customCakeForm">
+                    <!-- Step 1: Occasion -->
+                    <div class="step-pane active" data-step="1">
+                        <h3>1. Choose Your Occasion</h3>
+                        <p class="step-desc">What special milestone are we celebrating together?</p>
+                        <div class="choice-grid" data-field="occasion" data-mode="single">
+                            <div class="choice-pill">Birthday</div>
+                            <div class="choice-pill">Wedding</div>
+                            <div class="choice-pill">Anniversary</div>
+                            <div class="choice-pill">Graduation</div>
+                            <div class="choice-pill">Baby Shower</div>
+                            <div class="choice-pill">Bridal Shower</div>
+                            <div class="choice-pill">Kids' Celebration</div>
+                            <div class="choice-pill">Corporate Event</div>
+                            <div class="choice-pill">Other</div>
                         </div>
                     </div>
-                    <!-- Additional steps are implemented in JS to keep HTML clean -->
-                    <div class="step-actions">
-                        <button type="button" class="btn btn-secondary hidden" id="prevBtn">Previous</button>
+
+                    <!-- Step 2: Style -->
+                    <div class="step-pane" data-step="2">
+                        <h3>2. Choose Your Cake Style</h3>
+                        <p class="step-desc">Select the aesthetic that matches your celebration vibe.</p>
+                        <div class="choice-grid" data-field="style" data-mode="single">
+                            <div class="choice-pill">Vintage</div>
+                            <div class="choice-pill">Minimalist</div>
+                            <div class="choice-pill">Floral</div>
+                            <div class="choice-pill">Elegant</div>
+                            <div class="choice-pill">Cartoon/Themed</div>
+                            <div class="choice-pill">Heart-shaped</div>
+                            <div class="choice-pill">Luxury</div>
+                            <div class="choice-pill">Traditional</div>
+                            <div class="choice-pill">Custom Design</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Cake Details -->
+                    <div class="step-pane" data-step="3">
+                        <h3>3. Cake Details & Proportions</h3>
+                        <p class="step-desc">Help us understand the size, shape, and colour palette you envision.</p>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Cake Size (e.g., 6", 8", 10" or 2kg)</label>
+                                <input type="text" class="form-control" name="size" placeholder="e.g., 8 inch / 2kg">
+                            </div>
+                            <div class="form-group">
+                                <label>Estimated Number of Servings</label>
+                                <input type="text" class="form-control" name="servings" placeholder="e.g., 20 - 30 guests">
+                            </div>
+                            <div class="form-group">
+                                <label>Cake Shape</label>
+                                <input type="text" class="form-control" name="shape" placeholder="e.g., Round, Heart, Square">
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Tiers</label>
+                                <input type="text" class="form-control" name="tiers" placeholder="e.g., Single Tier, 2 Tiers">
+                            </div>
+                            <div class="form-group full">
+                                <label>Preferred Colours</label>
+                                <input type="text" class="form-control" name="colours" placeholder="e.g., Dusty rose, ivory, and touches of gold">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Flavours -->
+                    <div class="step-pane" data-step="4">
+                        <h3>4. Choose Flavours</h3>
+                        <p class="step-desc">Select one or multiple flavours for your cake layers.</p>
+                        <div class="choice-grid" data-field="flavours" data-mode="multi">
+                            <div class="choice-pill">Vanilla</div>
+                            <div class="choice-pill">Chocolate</div>
+                            <div class="choice-pill">Red Velvet</div>
+                            <div class="choice-pill">Black Forest</div>
+                            <div class="choice-pill">White Forest</div>
+                            <div class="choice-pill">Strawberry</div>
+                            <div class="choice-pill">Lemon</div>
+                            <div class="choice-pill">Marble</div>
+                            <div class="choice-pill">Other</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Fillings & Ingredients -->
+                    <div class="step-pane" data-step="5">
+                        <h3>5. Fillings & Dietary Preferences</h3>
+                        <p class="step-desc">Tell us about frostings, fruit additions, or any ingredients to avoid.</p>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Preferred Fillings & Buttercream</label>
+                                <input type="text" class="form-control" name="fillings" placeholder="e.g., Swiss meringue, cream cheese, ganache">
+                            </div>
+                            <div class="form-group">
+                                <label>Fruit or Chocolate Additions</label>
+                                <input type="text" class="form-control" name="additions" placeholder="e.g., Fresh strawberries, white chocolate drip">
+                            </div>
+                            <div class="form-group full">
+                                <label>Allergies, Dietary Requirements, or Ingredients to Avoid</label>
+                                <textarea class="form-control" name="dietary" rows="2" placeholder="e.g., Nut-free, eggless, less sweet..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: Personalise -->
+                    <div class="step-pane" data-step="6">
+                        <h3>6. Personalise Your Cake</h3>
+                        <p class="step-desc">Add custom inscriptions, toppers, and thematic details.</p>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Message to Write on the Cake</label>
+                                <input type="text" class="form-control" name="message" placeholder="e.g., Happy 25th Birthday Joy!">
+                            </div>
+                            <div class="form-group">
+                                <label>Name or Initials (for toppers/monograms)</label>
+                                <input type="text" class="form-control" name="initials" placeholder="e.g., J & M">
+                            </div>
+                            <div class="form-group full">
+                                <label>Decorations & Theme Details</label>
+                                <input type="text" class="form-control" name="decorations" placeholder="e.g., Fresh roses, pearls, butterflies, acrylic topper">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 7: Date & Collection -->
+                    <div class="step-pane" data-step="7">
+                        <h3>7. Date, Collection & Your Name</h3>
+                        <p class="step-desc">When do you need your cake ready, and how would you like to receive it?</p>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Your Name *</label>
+                                <input type="text" class="form-control" name="customerName" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Date Needed *</label>
+                                <input type="date" class="form-control" name="dateNeeded" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Collection or Delivery Preference</label>
+                                <select class="form-control" name="deliveryPref">
+                                    <option value="Pickup / Collection">Pickup / Collection</option>
+                                    <option value="Delivery">Delivery</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Delivery Location (if applicable)</label>
+                                <input type="text" class="form-control" name="location" placeholder="Estate, road, or landmark">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 8: Budget -->
+                    <div class="step-pane" data-step="8">
+                        <h3>8. Estimated Budget (Optional)</h3>
+                        <p class="step-desc">Sharing a budget helps us recommend the best size and decoration options for you.</p>
+                        <div class="form-group">
+                            <label>Approximate Budget in KES</label>
+                            <input type="text" class="form-control" name="budget" placeholder="e.g., KES 5,500">
+                        </div>
+                    </div>
+
+                    <!-- Step 9: Dream Description -->
+                    <div class="step-pane" data-step="9">
+                        <h3>9. Describe Your Dream Design</h3>
+                        <p class="step-desc">Paint a picture with words—every little detail helps us bring your vision to life.</p>
+                        <div class="form-group">
+                            <textarea class="form-control" name="description" rows="5" placeholder="Describe the cake you have in mind..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Step 10: Upload Inspiration -->
+                    <div class="step-pane" data-step="10">
+                        <h3>10. Upload Inspiration Photo</h3>
+                        <p class="step-desc">Have a Pinterest or Instagram reference? Preview it here so you have it ready to attach in WhatsApp.</p>
+                        <label class="upload-box" for="inspoInput">
+                            <strong>Click to select an inspiration image</strong>
+                            <p style="font-size: 0.85rem; margin-top: 0.3rem;">JPG, PNG or WEBP from your phone or computer</p>
+                            <input type="file" id="inspoInput" accept="image/*" style="display:none;">
+                            <img id="imagePreview" alt="Inspiration preview">
+                        </label>
+                        <p style="font-size: 0.85rem; color: var(--cocoa); margin-top: 1rem; background: var(--vanilla); padding: 0.8rem 1rem; border-radius: 10px;">
+                            <strong>Note:</strong> WhatsApp click-to-chat opens with your structured order details pre-filled. Please remember to attach this inspiration photo directly inside the WhatsApp chat!
+                        </p>
+                    </div>
+
+                    <div class="wizard-nav">
+                        <button type="button" class="btn btn-secondary" id="prevBtn" style="visibility: hidden;">Previous</button>
                         <button type="button" class="btn btn-primary" id="nextBtn">Next Step</button>
-                        <button type="submit" class="btn btn-primary hidden" id="submitBtn">CONTINUE TO WHATSAPP</button>
+                        <button type="submit" class="btn btn-primary" id="finishBtn" style="display: none;">CONTINUE TO WHATSAPP</button>
                     </div>
                 </form>
-                
-                <div class="quick-enquiry">
-                    <p>Know exactly what you want?</p>
-                    <button class="btn btn-secondary btn-sm" id="quickEnquiryBtn">QUICK CAKE ENQUIRY</button>
-                </div>
             </div>
 
-            <div class="order-summary">
+            <!-- Live Order Vision Summary -->
+            <aside class="vision-card">
                 <h3>Your Cake Vision</h3>
-                <div id="summary-content" class="summary-content">
-                    <p class="empty-msg">Start selecting to build your cake.</p>
+                <p class="vision-sub">Live summary of your bespoke creation</p>
+                <div class="vision-list" id="visionList">
+                    <p style="color: var(--peach); font-style: italic;">Make selections on the left to watch your custom cake summary come together...</p>
+                </div>
+                <button type="button" class="btn btn-primary" style="width: 100%;" id="sidebarSubmitBtn">CONTINUE TO WHATSAPP</button>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+        <div class="section-header">
+            <span class="label">VISUAL INSPIRATION</span>
+            <h2>The Cake Lookbook</h2>
+            <p>Click any design to inspect the details up close.</p>
+        </div>
+        <div class="masonry-grid" id="masonryGrid"></div>
+        <p class="demo-disclaimer">* Temporary demonstration imagery showcasing aesthetic styles. Replace with Pillah Priscilah's studio photography.</p>
+    </section>
+
+    <!-- Process -->
+    <section class="process-section" id="story">
+        <div class="section-header">
+            <span class="label" style="color: var(--peach);">OUR CREATIVE PROCESS</span>
+            <h2>Little Details. Big Celebrations.</h2>
+            <p>From a simple spark of inspiration to the centrepiece of your celebration table, we craft every cake with patience, artistry, and heart.</p>
+        </div>
+        <div class="stages-grid">
+            <div class="stage-card">
+                <span class="stage-num">01</span>
+                <h3>DREAM IT</h3>
+                <p>You share your inspiration, colours, flavours, and celebration ideas through our interactive designer or WhatsApp.</p>
+            </div>
+            <div class="stage-card">
+                <span class="stage-num">02</span>
+                <h3>WE CREATE IT</h3>
+                <p>Your cake is baked fresh and decorated by hand around your exact preferences, ensuring every swirl and detail shines.</p>
+            </div>
+            <div class="stage-card">
+                <span class="stage-num">03</span>
+                <h3>CELEBRATE IT</h3>
+                <p>Enjoy a beautiful, memorable cake made exclusively for your special moment with family and friends.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Pillah Priscilah -->
+    <section>
+        <div class="section-header">
+            <span class="label">THE BOUTIQUE DIFFERENCE</span>
+            <h2>Thoughtfully Baked & Styled</h2>
+        </div>
+        <div class="highlights-grid">
+            <div class="highlight-box">
+                <div class="highlight-icon">✦</div>
+                <h3>Personalised Cake Designs</h3>
+                <p>No cookie-cutter templates—every cake is tailored to your theme, colours, and personal story.</p>
+            </div>
+            <div class="highlight-box">
+                <div class="highlight-icon">❀</div>
+                <h3>Creative Decorations</h3>
+                <p>From delicate vintage piping to fresh florals and modern minimalist finishes.</p>
+            </div>
+            <div class="highlight-box">
+                <div class="highlight-icon">❖</div>
+                <h3>Rich Flavour Choices</h3>
+                <p>Classic vanilla, decadent chocolate, red velvet, fruit-infused sponges, and custom fillings.</p>
+            </div>
+            <div class="highlight-box">
+                <div class="highlight-icon">♡</div>
+                <h3>Attention to Detail</h3>
+                <p>Every ribbon, pearl, brushstroke, and inscription is placed with care and precision.</p>
+            </div>
+            <div class="highlight-box">
+                <div class="highlight-icon">✧</div>
+                <h3>Celebration-Focused Service</h3>
+                <p>Warm, reliable guidance from your initial idea right up to your event date.</p>
+            </div>
+            <div class="highlight-box">
+                <div class="highlight-icon">💬</div>
+                <h3>Easy WhatsApp Communication</h3>
+                <p>Direct, personal consultation on WhatsApp so sharing photos and finalizing quotes is effortless.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternative to Fake Testimonials -->
+    <section class="stories-section">
+        <div class="section-header">
+            <span class="label">CELEBRATION MOMENTS</span>
+            <h2>Every Celebration Has a Story.</h2>
+            <p>Illustrative ways our bespoke cakes bring warmth and beauty to life's milestones.</p>
+        </div>
+        <div class="stories-grid">
+            <div class="story-card">
+                <span class="story-tag">Intimate Milestones</span>
+                <h3>The Vintage Heart Table</h3>
+                <p>A pastel dusty-rose heart cake with delicate Lambeth piping and custom script—crafted for intimate birthday dinners and cherished photos.</p>
+            </div>
+            <div class="story-card">
+                <span class="story-tag">Unforgettable Unions</span>
+                <h3>Timeless Tiered Romance</h3>
+                <p>Soft vanilla buttercream paired with fresh seasonal blooms and champagne accents to anchor a joyful wedding reception.</p>
+            </div>
+            <div class="story-card">
+                <span class="story-tag">Sweet Beginnings</span>
+                <h3>Welcoming Little Ones</h3>
+                <p>Gentle sage and warm peach tones with whimsical handcrafted toppers to celebrate baby showers and first birthdays.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-wrap">
+            <div>
+                <span class="label">GET IN TOUCH</span>
+                <h2>Let's Bake Something Beautiful</h2>
+                <p style="margin: 1rem 0 2rem;">Ready to discuss your date, flavours, and design ideas? Reach out directly via WhatsApp for quick availability and quotation.</p>
+                <a href="https://wa.me/254742025817?text=Hello%20Pillah%20Priscilah!%20I%20would%20love%20to%20enquire%20about%20ordering%20a%20cake." target="_blank" class="btn btn-primary">CHAT ON WHATSAPP (0742025817)</a>
+            </div>
+            <div>
+                <div class="detail-row">
+                    <strong>Studio:</strong>
+                    <span>Pillah Priscilah</span>
+                </div>
+                <div class="detail-row">
+                    <strong>WhatsApp:</strong>
+                    <span>+254 742 025 817</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Location:</strong>
+                    <span class="placeholder-badge">[Studio Address / Pickup Point Placeholder]</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Phone:</strong>
+                    <span class="placeholder-badge">[Additional Phone Placeholder]</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Email:</strong>
+                    <span class="placeholder-badge">[Business Email Placeholder]</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Hours:</strong>
+                    <span class="placeholder-badge">[Opening Hours Placeholder]</span>
+                </div>
+                <div class="detail-row">
+                    <strong>Socials:</strong>
+                    <span class="placeholder-badge">[Instagram / Facebook Handles Placeholder]</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="process" class="process">
-        <div class="section-header">
-            <h2>Little Details. Big Celebrations.</h2>
-            <p>How we transform your ideas into beautiful cakes.</p>
-        </div>
-        <div class="process-steps">
-            <div class="step">
-                <span class="step-num">01</span>
-                <h3>DREAM IT</h3>
-                <p>You share your inspiration and ideas.</p>
-            </div>
-            <div class="step">
-                <span class="step-num">02</span>
-                <h3>WE CREATE IT</h3>
-                <p>The cake is prepared around your preferences.</p>
-            </div>
-            <div class="step">
-                <span class="step-num">03</span>
-                <h3>CELEBRATE IT</h3>
-                <p>Enjoy a beautiful cake made for your moment.</p>
-            </div>
-        </div>
-    </section>
+    <footer>
+        <p>© 2026 Pillah Priscilah. Crafted with love for life's sweetest celebrations.</p>
+    </footer>
 
-    <section id="contact" class="contact">
-        <div class="contact-card">
-            <h2>Pillah Priscilah</h2>
-            <p>Let's create something unforgettable together.</p>
-            <a href="https://wa.me/254742025817" target="_blank" class="btn btn-primary">WHATSAPP US</a>
-            <div class="placeholders">
-                <p>📍 Location: [Business Address Placeholder]</p>
-                <p>✉️ Email: [Email Placeholder]</p>
-                <p>🕒 Hours: [Opening Hours Placeholder]</p>
-            </div>
-        </div>
-    </section>
-
-    <a href="https://wa.me/254742025817" target="_blank" class="floating-whatsapp">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254742025817?text=Hello%20Pillah%20Priscilah!%20I%20would%20like%20to%20enquire%20about%20a%20custom%20cake." target="_blank" class="wa-float" aria-label="Chat on WhatsApp">
         <svg viewBox="0 0 24 24" width="30" height="30" fill="white">
             <path d="M12.031 0C5.394 0 0 5.394 0 12.031c0 2.12.551 4.191 1.597 6.002L.05 23.633l5.748-1.507A11.96 11.96 0 0012.031 24c6.636 0 12.031-5.394 12.031-12.031S18.667 0 12.031 0zM17.47 16.924c-.262.74-1.272 1.341-2.022 1.442-.64.085-1.468.214-4.225-.928-3.33-1.38-5.46-4.808-5.626-5.03-.166-.222-1.341-1.785-1.341-3.411 0-1.626.84-2.423 1.144-2.738.303-.315.659-.395.877-.395.218 0 .436 0 .618.009.2.01.468-.078.731.554.281.677.962 2.347 1.045 2.512.083.165.139.356.027.577-.111.222-.167.355-.333.555-.166.2-.345.432-.499.599-.166.183-.342.384-.139.734.204.35 1.031 1.7 2.25 2.785 1.577 1.405 2.913 1.838 3.284 1.996.371.159.588.134.809-.115.221-.249.957-1.116 1.218-1.498.261-.383.522-.32.855-.196.333.124 2.106.994 2.467 1.176.361.182.602.274.69.426.088.152.088.882-.174 1.622z"/>
         </svg>
     </a>
 
-    <!-- Modals and Overlay would be dynamically inserted here -->
-    <div class="overlay" id="overlay"></div>
+    <!-- Quick Cake Enquiry Modal -->
+    <div class="modal" id="quickModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeQuickModal">&times;</button>
+            <span class="label">FAST TRACK</span>
+            <h3 style="margin-bottom: 0.5rem;">Quick Cake Enquiry</h3>
+            <p style="font-size: 0.92rem; margin-bottom: 1.5rem;">Already know what you'd like? Send a direct note to WhatsApp.</p>
+            <form id="quickForm">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" class="form-control" id="qName" required placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label>Cake Type / Occasion *</label>
+                    <input type="text" class="form-control" id="qType" required placeholder="e.g., Vintage Heart Birthday Cake">
+                </div>
+                <div class="form-group">
+                    <label>Required Date *</label>
+                    <input type="date" class="form-control" id="qDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Short Description</label>
+                    <textarea class="form-control" id="qDesc" rows="3" placeholder="Size, flavour, colours, or message..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">SEND TO WHATSAPP</button>
+            </form>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- Gallery Lightbox Modal -->
+    <div class="modal" id="lightboxModal">
+        <button class="modal-close" id="closeLightbox" style="color: white; font-size: 2.5rem;">&times;</button>
+        <img id="lightboxImg" src="" alt="Gallery preview">
+    </div>
+
+    <!-- Accessible Toast Message -->
+    <div class="toast-msg" id="toastMsg"></div>
+
+    <script>
+        const WHATSAPP_NUMBER = "254742025817";
+
+        // Categories Data
+        const categories = [
+            { name: "Birthday Cakes", occasion: "Birthday", desc: "Joyful, custom-styled cakes for every milestone age.", img: "https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=600&q=80" },
+            { name: "Wedding Cakes", occasion: "Wedding", desc: "Romantic tiered centrepieces crafted for your forever.", img: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=600&q=80" },
+            { name: "Vintage Cakes", style: "Vintage", desc: "Ornate Lambeth piping, ribbons, and timeless charm.", img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=600&q=80" },
+            { name: "Heart Cakes", style: "Heart-shaped", desc: "Trend-setting heart silhouettes in pastel & bold hues.", img: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80" },
+            { name: "Anniversary Cakes", occasion: "Anniversary", desc: "Intimate, elegant designs celebrating years together.", img: "https://images.unsplash.com/photo-1519340333755-56e9c1d04579?auto=format&fit=crop&w=600&q=80" },
+            { name: "Graduation Cakes", occasion: "Graduation", desc: "Sophisticated bakes honouring hard-earned success.", img: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=600&q=80" },
+            { name: "Baby Shower Cakes", occasion: "Baby Shower", desc: "Soft textures and sweet motifs for new arrivals.", img: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=600&q=80" },
+            { name: "Kids' Cakes", occasion: "Kids' Celebration", desc: "Playful characters, bright palettes, and fun themes.", img: "https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=600&q=80" },
+            { name: "Cupcakes", style: "Custom Design", desc: "Matching gourmet cupcake boxes & floral bouquets.", img: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=600&q=80" },
+            { name: "Custom Creations", style: "Custom Design", desc: "One-of-a-kind artistic cakes built from your sketch.", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" }
+        ];
+
+        // Showcase Products Data
+        const products = [
+            { name: "Vintage Heart Cake", flavour: "Vanilla & Strawberry", desc: "Delicate ruffle piping, satin bows, and custom piped script in soft dusty rose.", img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=700&q=80" },
+            { name: "Strawberry Dream Cake", flavour: "Fresh Berry & Cream", desc: "Light vanilla sponge layered with whipped mascarpone cream and glazed strawberries.", img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80" },
+            { name: "Chocolate Indulgence", flavour: "Rich Dark Chocolate", desc: "Velvety cocoa layers finished with silky dark chocolate ganache and truffles.", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" },
+            { name: "Floral Buttercream Cake", flavour: "Lemon & Vanilla", desc: "Smooth Swiss meringue buttercream adorned with fresh garden roses and eucalyptus.", img: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=700&q=80" },
+            { name: "Minimalist Celebration Cake", flavour: "White Forest", desc: "Clean modern edges, subtle palette-knife texture, and understated elegance.", img: "https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=700&q=80" },
+            { name: "Pink Pearl Cake", flavour: "Red Velvet & Vanilla", desc: "Blush ombre finish accented with edible lustre pearls and delicate gold leaf.", img: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=80" },
+            { name: "Red Velvet Creation", flavour: "Classic Red Velvet", desc: "Moist crimson cocoa sponge paired with tangy, cloud-like cream cheese frosting.", img: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=700&q=80" },
+            { name: "Custom Birthday Cake", flavour: "Your Choice of Flavour", desc: "Tailored colours, custom acrylic toppers, and flavours designed around the guest of honour.", img: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=700&q=80" }
+        ];
+
+        // Gallery Items
+        const galleryItems = [
+            { label: "Tiered Floral Wedding", img: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=700&q=80" },
+            { label: "Vintage Piped Heart", img: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=700&q=80" },
+            { label: "Artisan Berry Chocolate", img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80" },
+            { label: "Floral Swirl Cupcakes", img: "https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=700&q=80" },
+            { label: "Blush Birthday Cake", img: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=700&q=80" },
+            { label: "Pastel Celebration", img: "https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=700&q=80" },
+            { label: "Whimsical Kids Theme", img: "https://images.unsplash.com/photo-1562777717-dc6984f65a63?auto=format&fit=crop&w=700&q=80" },
+            { label: "Strawberry Cream Layer", img: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=700&q=80" }
+        ];
+
+        // Render Categories
+        const catGrid = document.getElementById("categoryGrid");
+        categories.forEach(cat => {
+            const card = document.createElement("div");
+            card.className = "cat-card";
+            card.innerHTML = `
+                <div class="cat-img"><img src="${cat.img}" alt="${cat.name}" loading="lazy"></div>
+                <div class="cat-body">
+                    <div>
+                        <h3>${cat.name}</h3>
+                        <p>${cat.desc}</p>
+                    </div>
+                    <span class="cat-link">Explore &rarr;</span>
+                </div>
+            `;
+            card.addEventListener("click", () => {
+                if (cat.occasion) selectPill("occasion", cat.occasion);
+                if (cat.style) selectPill("style", cat.style);
+                document.getElementById("designer").scrollIntoView({ behavior: "smooth" });
+            });
+            catGrid.appendChild(card);
+        });
+
+        // Render Products
+        const showcaseGrid = document.getElementById("showcaseGrid");
+        products.forEach(prod => {
+            const msg = encodeURIComponent(`Hello Pillah Priscilah! I would love to enquire about pricing and availability for the *${prod.name}* (${prod.flavour}).`);
+            const card = document.createElement("div");
+            card.className = "product-card";
+            card.innerHTML = `
+                <div class="product-img">
+                    <span class="flavour-tag">${prod.flavour}</span>
+                    <img src="${prod.img}" alt="${prod.name}" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <h3>${prod.name}</h3>
+                    <p>${prod.desc}</p>
+                    <div class="product-footer">
+                        <span class="price-label">Enquire for Pricing</span>
+                        <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${msg}" target="_blank" class="btn btn-primary btn-sm">ENQUIRE</a>
+                    </div>
+                </div>
+            `;
+            showcaseGrid.appendChild(card);
+        });
+
+        // Render Gallery
+        const masonryGrid = document.getElementById("masonryGrid");
+        galleryItems.forEach(item => {
+            const div = document.createElement("div");
+            div.className = "masonry-item";
+            div.innerHTML = `
+                <img src="${item.img}" alt="${item.label}" loading="lazy">
+                <div class="masonry-caption">${item.label}</div>
+            `;
+            div.addEventListener("click", () => {
+                document.getElementById("lightboxImg").src = item.img;
+                document.getElementById("lightboxModal").classList.add("open");
+            });
+            masonryGrid.appendChild(div);
+        });
+
+        // Custom Cake Designer State & Logic
+        const state = {
+            occasion: "",
+            style: "",
+            flavours: []
+        };
+
+        function selectPill(field, value) {
+            const container = document.querySelector(`.choice-grid[data-field="${field}"]`);
+            if (!container) return;
+            const mode = container.dataset.mode;
+            const pills = container.querySelectorAll(".choice-pill");
+
+            if (mode === "single") {
+                state[field] = value;
+                pills.forEach(p => p.classList.toggle("selected", p.textContent.trim() === value));
+            } else {
+                const idx = state[field].indexOf(value);
+                if (idx > -1) state[field].splice(idx, 1);
+                else state[field].push(value);
+                pills.forEach(p => p.classList.toggle("selected", state[field].includes(p.textContent.trim())));
+            }
+            updateVisionSummary();
+        }
+
+        document.querySelectorAll(".choice-grid").forEach(grid => {
+            const field = grid.dataset.field;
+            grid.querySelectorAll(".choice-pill").forEach(pill => {
+                pill.addEventListener("click", () => selectPill(field, pill.textContent.trim()));
+            });
+        });
+
+        const form = document.getElementById("customCakeForm");
+        form.addEventListener("input", updateVisionSummary);
+        form.addEventListener("change", updateVisionSummary);
+
+        function getFormData() {
+            const fd = new FormData(form);
+            return {
+                customerName: fd.get("customerName")?.trim() || "",
+                occasion: state.occasion,
+                style: state.style,
+                size: fd.get("size")?.trim() || "",
+                servings: fd.get("servings")?.trim() || "",
+                shape: fd.get("shape")?.trim() || "",
+                tiers: fd.get("tiers")?.trim() || "",
+                colours: fd.get("colours")?.trim() || "",
+                flavours: state.flavours.join(", "),
+                fillings: [fd.get("fillings")?.trim(), fd.get("additions")?.trim()].filter(Boolean).join(" | "),
+                dietary: fd.get("dietary")?.trim() || "",
+                message: fd.get("message")?.trim() || "",
+                initials: fd.get("initials")?.trim() || "",
+                decorations: fd.get("decorations")?.trim() || "",
+                dateNeeded: fd.get("dateNeeded") || "",
+                deliveryPref: fd.get("deliveryPref") || "",
+                location: fd.get("location")?.trim() || "",
+                budget: fd.get("budget")?.trim() || "",
+                description: fd.get("description")?.trim() || ""
+            };
+        }
+
+        function updateVisionSummary() {
+            const d = getFormData();
+            const list = document.getElementById("visionList");
+            const entries = [
+                ["Occasion", d.occasion],
+                ["Style", d.style],
+                ["Size & Tiers", [d.size, d.tiers, d.shape].filter(Boolean).join(", ")],
+                ["Servings", d.servings],
+                ["Colours", d.colours],
+                ["Flavours", d.flavours],
+                ["Fillings", d.fillings],
+                ["Message", d.message],
+                ["Date", d.dateNeeded],
+                ["Budget", d.budget]
+            ].filter(item => item[1]);
+
+            if (entries.length === 0) {
+                list.innerHTML = `<p style="color: var(--peach); font-style: italic;">Make selections on the left to watch your custom cake summary come together...</p>`;
+                return;
+            }
+
+            list.innerHTML = entries.map(([k, v]) => `
+                <div class="vision-item">
+                    <span>${k}</span>
+                    <span>${v}</span>
+                </div>
+            `).join("");
+        }
+
+        // Wizard Step Navigation
+        let currentStep = 1;
+        const totalSteps = 10;
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const finishBtn = document.getElementById("finishBtn");
+
+        function goToStep(step) {
+            currentStep = step;
+            document.querySelectorAll(".step-pane").forEach(p => {
+                p.classList.toggle("active", Number(p.dataset.step) === currentStep);
+            });
+            document.getElementById("stepLabel").textContent = `Step ${currentStep} of ${totalSteps}`;
+            document.getElementById("progressBar").style.width = `${(currentStep / totalSteps) * 100}%`;
+            prevBtn.style.visibility = currentStep === 1 ? "hidden" : "visible";
+            nextBtn.style.display = currentStep === totalSteps ? "none" : "inline-flex";
+            finishBtn.style.display = currentStep === totalSteps ? "inline-flex" : "none";
+        }
+
+        nextBtn.addEventListener("click", () => {
+            if (currentStep < totalSteps) goToStep(currentStep + 1);
+        });
+
+        prevBtn.addEventListener("click", () => {
+            if (currentStep > 1) goToStep(currentStep - 1);
+        });
+
+        // Image Preview
+        let hasUploadedImage = false;
+        document.getElementById("inspoInput").addEventListener("change", (e) => {
+            const file = e.target.files[0];
+            const preview = document.getElementById("imagePreview");
+            if (file) {
+                hasUploadedImage = true;
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = "block";
+            }
+        });
+
+        // Submit Custom Order to WhatsApp
+        function showToast(text) {
+            const toast = document.getElementById("toastMsg");
+            toast.textContent = text;
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 4000);
+        }
+
+        function sendCustomOrderToWhatsApp() {
+            const d = getFormData();
+            if (!d.customerName || !d.dateNeeded) {
+                showToast("Please enter your Name and Date Needed in Step 7 before continuing.");
+                goToStep(7);
+                return;
+            }
+
+            const lines = ["Hello Pillah Priscilah!", "I would love to enquire about a custom cake.", ""];
+            const addField = (label, val) => {
+                if (val) lines.push(`${label}:\n${val}\n`);
+            };
+
+            addField("CUSTOMER", d.customerName);
+            addField("OCCASION", d.occasion);
+            addField("CAKE STYLE", d.style);
+            addField("SIZE & SHAPE", [d.size, d.shape, d.tiers].filter(Boolean).join(" | "));
+            addField("SERVINGS", d.servings);
+            addField("COLOURS", d.colours);
+            addField("FLAVOURS", d.flavours);
+            addField("FILLINGS", d.fillings);
+            addField("DECORATIONS", [d.decorations, d.initials ? `Initials: ${d.initials}` : ""].filter(Boolean).join(" | "));
+            addField("CAKE MESSAGE", d.message);
+            addField("DATE NEEDED", d.dateNeeded);
+            addField("BUDGET", d.budget);
+            addField("DIETARY REQUIREMENTS", d.dietary);
+            addField("DESIGN DESCRIPTION", d.description);
+            addField("DELIVERY/COLLECTION", [d.deliveryPref, d.location].filter(Boolean).join(" - "));
+
+            if (hasUploadedImage) {
+                lines.push("(I have an inspiration photo ready to attach in this chat!)\n");
+            }
+            lines.push("Please let me know the availability and quotation.\nThank you!");
+
+            const encoded = encodeURIComponent(lines.join("\n"));
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, "_blank");
+        }
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            sendCustomOrderToWhatsApp();
+        });
+        document.getElementById("sidebarSubmitBtn").addEventListener("click", sendCustomOrderToWhatsApp);
+
+        // Quick Enquiry Modal
+        const quickModal = document.getElementById("quickModal");
+        document.getElementById("openQuickModal").addEventListener("click", () => quickModal.classList.add("open"));
+        document.getElementById("closeQuickModal").addEventListener("click", () => quickModal.classList.remove("open"));
+        document.getElementById("closeLightbox").addEventListener("click", () => document.getElementById("lightboxModal").classList.remove("open"));
+
+        document.getElementById("quickForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const name = document.getElementById("qName").value.trim();
+            const type = document.getElementById("qType").value.trim();
+            const date = document.getElementById("qDate").value;
+            const desc = document.getElementById("qDesc").value.trim();
+
+            const msg = [
+                "Hello Pillah Priscilah! Quick Cake Enquiry:",
+                "",
+                `CUSTOMER: ${name}`,
+                `CAKE TYPE: ${type}`,
+                `DATE NEEDED: ${date}`,
+                desc ? `DETAILS: ${desc}` : "",
+                "",
+                "Please let me know availability and pricing. Thank you!"
+            ].filter(line => line !== null).join("\n");
+
+            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank");
+            quickModal.classList.remove("open");
+        });
+
+        // Navbar scroll & Mobile Menu
+        window.addEventListener("scroll", () => {
+            document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 40);
+        });
+
+        document.getElementById("mobileToggle").addEventListener("click", () => {
+            document.getElementById("navLinks").classList.toggle("mobile-open");
+        });
+
+        document.querySelectorAll("#navLinks a").forEach(link => {
+            link.addEventListener("click", () => {
+                document.getElementById("navLinks").classList.remove("mobile-open");
+            });
+        });
+    </script>
 </body>
 </html>
